@@ -1,9 +1,9 @@
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 
-export function Navbar() {
+export default function Navbar() {
   return (
-    <nav className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+    <nav className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 mt-6">
       <div className="flex items-center justify-between h-16">
         {/* Logo */}
         <Link href="/" className="flex items-center space-x-2 group">

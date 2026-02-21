@@ -1,8 +1,8 @@
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
-import { Navbar } from "@/components/Navbar";
 import LiquidEther from "@/components/LiquidEther/LiquidEther";
+import Navbar from "@/components/Navbar";
 
 export default function Home() {
   return (
