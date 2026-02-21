@@ -6,7 +6,7 @@ import Navbar from "@/components/Navbar";
 
 export default function Home() {
   return (
-    <main className="h-full bg-black liquid-blob">
+    <main className="h-full min-h-full bg-black liquid-blob">
       <div className="w-full h-full absolute">
         <LiquidEther
           colors={["#5227FF", "#FF9FFC", "#B19EEF"]}
@@ -27,7 +27,7 @@ export default function Home() {
         />
       </div>
 
-      <div className="relative z-10 flex flex-col h-full">
+      <div className="relative z-10 flex flex-col h-full py-4">
         <div className="w-full">
           <Navbar />
         </div>
