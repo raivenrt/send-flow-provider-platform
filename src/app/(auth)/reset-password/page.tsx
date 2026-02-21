@@ -25,7 +25,7 @@ export default function ResetPasswordPage() {
   };
 
   return (
-    <main className="h-full flex items-center justify-center px-4 sm:px-6 lg:px-8 py-12 liquid-blob bg-black">
+    <main className="min-h-full flex items-center justify-center px-4 sm:px-6 lg:px-8 py-12 liquid-blob bg-black">
       <div className="w-full max-w-md">
         {/* Card */}
         <div className="glass-card p-8 sm:p-10">
