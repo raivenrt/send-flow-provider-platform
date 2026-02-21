@@ -6,6 +6,7 @@ import { Label } from "@/components/ui/label";
 import Link from "next/link";
 import { FormEvent, useState } from "react";
 import { ArrowRight } from "lucide-react";
+import BackButton from "@/components/BackButton";
 
 export default function RegisterPage() {
   const [isLoading, setIsLoading] = useState(false);
@@ -22,6 +23,7 @@ export default function RegisterPage() {
       <div className="w-full max-w-md">
         {/* Card */}
         <div className="glass-card p-8 sm:p-10">
+          <BackButton />
           {/* Header */}
           <div className="text-center mb-8">
             <h1 className="text-2xl sm:text-3xl font-bold text-white mb-2">

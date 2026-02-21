@@ -6,6 +6,7 @@ import { Label } from "@/components/ui/label";
 import Link from "next/link";
 import { FormEvent, useState } from "react";
 import { CheckCircle, Eye, EyeOff } from "lucide-react";
+import BackButton from "@/components/BackButton";
 
 export default function ResetPasswordPage() {
   const [isLoading, setIsLoading] = useState(false);
@@ -28,6 +29,7 @@ export default function ResetPasswordPage() {
       <div className="w-full max-w-md">
         {/* Card */}
         <div className="glass-card p-8 sm:p-10">
+          <BackButton />
           {!isSubmitted ? (
             <>
               {/* Header */}
