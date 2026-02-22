@@ -148,4 +148,60 @@
   .gradient-text {
     @apply bg-linear-to-r from-white via-white to-white/70 bg-clip-text text-transparent;
   }
+  @keyframes gradient-shift {
+    0% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+    100% {
+      background-position: 0% 50%;
+    }
+  }
+
+  @keyframes float {
+    0%,
+    100% {
+      transform: translateY(0px);
+    }
+    50% {
+      transform: translateY(-20px);
+    }
+  }
+
+  @keyframes blur-fade {
+    0% {
+      opacity: 0.3;
+      filter: blur(40px);
+    }
+    100% {
+      opacity: 0.1;
+      filter: blur(80px);
+    }
+  }
+
+  .card-elevated {
+    @apply rounded-lg border border-gray-200 bg-white shadow-sm hover:shadow-md transition-shadow;
+  }
+
+  .card-ghost {
+    @apply rounded-lg border border-transparent bg-gray-50 hover:bg-gray-100 transition-colors;
+  }
+
+  .stat-metric {
+    @apply text-3xl font-bold text-gray-900;
+  }
+
+  .stat-label {
+    @apply text-sm font-medium text-gray-600;
+  }
+
+  .nav-item-active {
+    @apply bg-blue-50 text-blue-600 font-medium;
+  }
+
+  .nav-item {
+    @apply text-gray-700 hover:bg-gray-100;
+  }
 }
