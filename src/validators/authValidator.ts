@@ -26,3 +26,11 @@ export const registerSchema = yup.object({
 });
 
 export type RegisterSchema = yup.InferType<typeof registerSchema>;
+
+export const loginSchema = yup.object({
+  email: yup.string().required("Please fill this field."),
+
+  password: yup.string().required("Please fill this field."),
+});
+
+export type LoginSchema = yup.InferType<typeof loginSchema>;
