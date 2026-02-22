@@ -6,6 +6,10 @@ import { ValidationError } from "yup";
 import formatYupErrors from "@/lib/formatYupErrors";
 import { prisma } from "@/lib/prisma";
 import { registerSchema, RegisterSchema } from "@/validators/authValidator";
+import sgMail from "@sendgrid/mail";
+import generateVerificationToken from "@/lib/generateVerificationToken";
+
+sgMail.setApiKey(process.env.SENDGRID_API_KEY!);
 
 export default async function signUp(data: RegisterSchema) {
   try {
@@ -31,9 +35,11 @@ export default async function signUp(data: RegisterSchema) {
       };
     }
 
+    const verificiation = await generateVerificationToken(64);
+
     const hashedPassword = await bcrypt.hash(
       form.password,
-      Number(process.env.BCRYPT_SALT),
+      Number(process.env.BCRYPT_SALT!),
     );
 
     const user = await prisma.user.create({
@@ -41,10 +47,24 @@ export default async function signUp(data: RegisterSchema) {
         name: form.name,
         email: form.email,
         password: hashedPassword,
+        verificationToken: verificiation.hashed,
       },
       select: {
         email: true,
+        name: true,
       },
+    });
+
+    await sgMail.send({
+      to: "raiven.rt@gmail.com",
+      from: "raiven.rt@gmail.com",
+      subject: "Verify your email",
+      html: `
+      <h1>SendFlow</h1>
+      <h2>Welcome ${user.name} to SendFlow</h2>
+      <p>last step to complete your registration</p>
+      <p>Click <a href="${verificiation.link}">here</a> to verify your email</p>
+      `,
     });
 
     return {
